@@ -1,0 +1,20 @@
+# Ignorar el directorio node_modules
+/node_modules
+
+# Ignorar el directorio .vscode
+/.vscode
+
+# Ignorar el directorio dist
+/dist
+
+# Ignorar el archivo .env
+/.env
+
+# Ignorar todos los archivos .log
+*.log
+
+# Ignorar .DS_Store para usuarios de Mac
+.DS_Store
+
+# Ignorar package.json
+/package.json

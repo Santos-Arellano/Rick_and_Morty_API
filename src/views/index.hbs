@@ -1,0 +1,44 @@
+ <!--//src/view/index.hbs-->
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Rick and Morty Episodes</h1>
+        </div>
+    </div>
+    <div class="row mt-4">
+        {{#if error}}
+            <div class="col-md-12">
+                <div class="alert alert-danger">{{error}}</div>
+            </div>
+        {{/if}}
+        {{#each episodes}}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-subtitle mb-2 text-muted">{{episode}} - {{air_date}}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            {{#each characters}}
+                                <div class="col-3">
+                                    <img src="{{this.image}}" alt="Character image" class="img-fluid rounded">
+                                </div>
+                            {{/each}}
+                        </div>
+                        {{#if ../user}}
+                            <form action="/favorites" method="post" class="mt-3">
+                                <input type="hidden" name="episodeId" value="{{id}}">
+                                <input type="hidden" name="episodeName" value="{{name}}">
+                                <button type="submit" class="btn btn-primary w-100">Add to Favorites</button>
+                            </form>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<!-- El contenido de la página va aquí -->
+{{> footer}}
