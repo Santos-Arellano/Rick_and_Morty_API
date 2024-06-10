@@ -89,6 +89,8 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `password` (`password`);
+  ALTER TABLE user ADD COLUMN favoriteCharacters TEXT;
+
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -105,3 +107,16 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+
+-- Crear una nueva tabla para almacenar los personajes favoritos
+CREATE TABLE favorite_characters (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_id int(11) NOT NULL,
+  character_id int(11) NOT NULL,
+  character_name varchar(255) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+-- Actualizar la tabla favorites para usar el mismo nombre de columna para el id del usuario
+ALTER TABLE favorites CHANGE user_id user_id int(11) NOT NULL;
