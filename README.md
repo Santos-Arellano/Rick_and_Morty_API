@@ -29,26 +29,18 @@ Clone the Repository
 bash
 
 Open In Editor
-Edit
-Run
-Copy code
+
 git clone https://github.com/your-username/rick-and-morty-tracker.git
 cd rick-and-morty-tracker
 Install Dependencies
 bash
 
-Open In Editor
-Edit
-Run
-Copy code
 npm install
 Configure the Database
 Create a database in MySQL and run the following script to create the necessary tables:
 sql
 
-Open In Editor
-Edit
-Copy code
+
 CREATE DATABASE rickandmorty;
 
 USE rickandmorty;
@@ -77,10 +69,7 @@ CREATE TABLE favorite_characters (
 Create a keys.js file in the project root with the following configuration:
 javascript
 
-Open In Editor
-Edit
-Run
-Copy code
+
 module.exports = {
   database: {
     host: 'localhost',
@@ -92,10 +81,7 @@ module.exports = {
 Run the Application
 bash
 
-Open In Editor
-Edit
-Run
-Copy code
+
 npm start
 The application will be available at http://localhost:4000.
 
