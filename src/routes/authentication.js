@@ -1,34 +1,38 @@
-//src/routes/authentification.js
+// src/routes/authentication.js
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
-router.get('/signin', isNotLoggedIn, (req, res) => {
-    res.render('auth/signin');
+// Ruta de inicio de sesión
+router.get('/login', (req, res) => {
+  res.render('auth/login');
 });
 
-router.post('/signin', isNotLoggedIn, (req, res, next) => {
-    passport.authenticate('local.signin', {
-        successRedirect: '/',
-        failureRedirect: '/signin',
-        failureFlash: true
-    })(req, res, next);
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local.signin', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  })(req, res, next);
 });
 
-router.get('/signup', isNotLoggedIn, (req, res) => {
-    res.render('auth/signup');
+// Ruta de registro
+router.get('/signup', (req, res) => {
+  res.render('auth/signup');
 });
 
-router.post('/signup', isNotLoggedIn, passport.authenticate('local.signup', {
+router.post('/signup', (req, res, next) => {
+  passport.authenticate('local.signup', {
     successRedirect: '/',
     failureRedirect: '/signup',
     failureFlash: true
-}));
+  })(req, res, next);
+});
 
-router.get('/logout', isLoggedIn, (req, res) => {
-    req.logout(() => {});
-    res.redirect('/signin');
+// Ruta de cierre de sesión
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/login');
 });
 
 module.exports = router;
