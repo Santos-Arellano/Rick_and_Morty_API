@@ -106,39 +106,7 @@ Save your favorite episodes and characters.
 View your profile to see your favorites.
 Project Structure
 
-rick-and-morty-tracker/
-│
-├── src/
-│   ├── database.js
-│   ├── index.js
-│   ├── keys.js
-│   ├── lib/
-│   │   ├── auth.js
-│   │   ├── helpers.js
-│   │   └── passport.js
-│   ├── routes/
-│   │   ├── authentication.js
-│   │   └── index.js
-│   └── views/
-│       ├── auth/
-│       │   ├── login.hbs
-│       │   └── signup.hbs
-│       ├── layouts/
-│       │   └── main.hbs
-│       ├── partials/
-│       ├── index.hbs
-│       ├── characters.hbs
-│       ├── episode.hbs
-│       ├── profile.hbs
-│       └── error.hbs
-│
-├── public/
-│   ├── css/
-│   └── js/
-│
-├── .gitignore
-├── package.json
-└── README.md
+
 
 Contributions
 Contributions are welcome. You can fork the repository and create a pull request with your improvements.
