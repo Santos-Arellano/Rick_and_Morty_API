@@ -1,101 +1,87 @@
-Rick and Morty Episode Tracker
-Rick and Morty
+# Rick and Morty Episode Tracker
 
-Description
+## Description
 Rick and Morty Episode Tracker is a web application that allows users to explore episodes and characters from the TV series "Rick and Morty". Users can register, log in, and save their favorite episodes and characters to their profile. This application uses the Rick and Morty GraphQL API to retrieve up-to-date data about the series.
 
-Features
-User authentication (Registration, Login, Logout)
-View episode list
-View character list
-Save favorite episodes
-Save favorite characters
-Search characters by name
-Technologies Used
-Node.js
-Express
-Passport.js (for authentication)
-MySQL (database)
-Handlebars (template engine)
-Axios (for making API requests to Rick and Morty API)
-Bootstrap (for styling)
-Installation
+
+# Introduction
+Rick and Morty Episode Tracker is a web application that allows users to explore episodes and characters from the "Rick and Morty" TV series. Users can register, log in, and save their favorite episodes and characters to their profile.
+
+# Registration and Login
+To use the application, you must first register. Click on the "Register" button and complete the form with your username and password. Once you have registered, you can log in to the application with the same credentials.
+
+# Explore Episodes and Characters
+Once you have logged in, you can explore the list of episodes and characters from the series. Click on "Episodes" or "Characters" in the navigation menu to view the corresponding lists.
+
+# Save Favorites
+If you find an episode or character you like, you can add it to your favorites. Simply click on the "Add to Favorites" button on the episode or character detail page.
+
+# View Profile
+You can view your profile by clicking on "Profile" in the navigation menu. Here you can see your favorite episodes and characters.
+
+#Developer Documentation
+Installation To install the application on your local machine, follow the steps in the installation section of the README.md file.
+
+# Project Structure
+The project follows a standard Node.js/Express project structure. The application files are located in the src folder, the configuration files in the config folder, and the database migrations in the migrations folder. Database The application uses MySQL as its database. The necessary tables are automatically created when running the database migrations.
+
+# Authentication
+User authentication is handled with Passport.js. The details of the Passport configuration can be found in the config/passport.js file.
+
+# API
+The application uses the Rick and Morty GraphQL API to obtain data about episodes and characters. API requests are made using the Axios library.
+
+## Features
+- User authentication (Registration, Login, Logout)
+- View episode list
+- View character list
+- Save favorite episodes
+- Save favorite characters
+- Search characters by name
+
+## Technologies Used
+- Node.js
+- Express
+- Passport.js (for authentication)
+- MySQL (database)
+- Handlebars (template engine)
+- Axios (for making API requests to Rick and Morty API)
+- Bootstrap (for styling)
+
+## Installation
 Follow these steps to set up and run the project on your local machine.
 
-Prerequisites
-Node.js and npm (https://nodejs.org/)
-MySQL (https://www.mysql.com/)
-Clone the Repository
-bash
+### Prerequisites
+- Node.js and npm (https://nodejs.org/)
+- MySQL (https://www.mysql.com/)
 
-Open In Editor
+1. Clone the repository:
+  ```bash
+  git clone https://github.com/your-username/Rick_and_Morty_API.git
+  ```
 
-git clone https://github.com/your-username/rick-and-morty-tracker.git
-cd rick-and-morty-tracker
-Install Dependencies
-bash
+2. Navigate to the project directory:
+  ```bash
+  cd Rick_and_Morty_API
+  ```
 
-npm install
-Configure the Database
-Create a database in MySQL and run the following script to create the necessary tables:
-sql
+3. Install the dependencies:
+  ```bash
+  npm install
+  ```
 
+4. Set up the database:
+  - Create a new MySQL database.
+  - Update the database configuration in the `config/config.json` file.
 
-CREATE DATABASE rickandmorty;
+5. Run the database migrations:
+  ```bash
+  npx sequelize-cli db:migrate
+  ```
 
-USE rickandmorty;
+6. Start the application:
+  ```bash
+  npm start
+  ```
 
-CREATE TABLE user (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE favorites (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT,
-  episode_id INT,
-  episode_name VARCHAR(255),
-  FOREIGN KEY (user_id) REFERENCES user(id)
-);
-
-CREATE TABLE favorite_characters (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT,
-  character_id INT,
-  character_name VARCHAR(255),
-  FOREIGN KEY (user_id) REFERENCES user(id)
-);
-Create a keys.js file in the project root with the following configuration:
-javascript
-
-
-module.exports = {
-  database: {
-    host: 'localhost',
-    user: 'root',
-    password: 'your-password',
-    database: 'rickandmorty'
-  }
-};
-Run the Application
-bash
-
-
-npm start
-The application will be available at http://localhost:4000.
-
-Usage
-Register and log in to the application.
-Explore the episode and character lists.
-Save your favorite episodes and characters.
-View your profile to see your favorites.
-Project Structure
-
-
-
-Contributions
-Contributions are welcome. You can fork the repository and create a pull request with your improvements.
-
-License
-This project is under the MIT License. See the LICENSE file for more details.
+7. Open your web browser and visit `http://localhost:4000` to access the application.
