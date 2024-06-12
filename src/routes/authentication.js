@@ -4,14 +4,14 @@ const router = express.Router();
 const passport = require('passport');
 
 // Ruta de inicio de sesión
-router.get('/login', (req, res) => {
-  res.render('auth/login');
+router.get('/signin', (req, res) => {
+  res.render('auth/signin');
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/signin', (req, res, next) => {
   passport.authenticate('local.signin', {
     successRedirect: '/',
-    failureRedirect: '/login',
+    failureRedirect: '/signin',
     failureFlash: true
   })(req, res, next);
 });
